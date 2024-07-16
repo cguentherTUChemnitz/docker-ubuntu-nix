@@ -21,5 +21,5 @@ WORKDIR /home/ubuntu
 
 # Install Nix and devenv system-wide
 ENV PATH="/home/ubuntu/.local/state/nix/profiles/profile/bin/:$PATH"
-RUN nix profile install --accept-flake-config "nixpkgs#devenv"
-RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+# RUN nix profile install --accept-flake-config "nixpkgs#devenv"
+# RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
