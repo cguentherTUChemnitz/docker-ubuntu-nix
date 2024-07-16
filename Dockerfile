@@ -27,3 +27,7 @@ ENV NIX_PATH="/home/ubuntu/.nix-defexpr/channels"
 RUN echo '. /home/ubuntu/.nix-profile/etc/profile.d/nix.sh' >> /home/ubuntu/.bashrc
 
 RUN nix profile install --accept-flake-config nixpkgs#devenv
+
+ENV PATH="/home/ubuntu/direnv_installation:${PATH}"
+RUN mkdir -p "/home/ubuntu/direnv_installation" && bin_path="/home/ubuntu/direnv_installation" curl -sfL https://direnv.net/install.sh | bash
+RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
