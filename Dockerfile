@@ -11,5 +11,8 @@ RUN apt-get update && apt-get install -y nix direnv && \
 rm -rf /var/cache/apt/archives /var/lib/apt/lists/* && \
 mkdir -p /etc/nix && \
 echo "trusted-users = root ubuntu " | tee -a /etc/nix/nix.conf && \
+echo "cores = 0" | tee -a /etc/nix/nix.conf && \
 echo "max-jobs = auto" | tee -a /etc/nix/nix.conf && \
 echo "experimental-features = nix-command flakes" | tee -a /etc/nix/nix.conf
+
+RUN ln -s /nix/var/nix/profiles/per-user/root/profile /root/.nix-profile
