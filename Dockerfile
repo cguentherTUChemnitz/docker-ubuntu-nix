@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y sudo
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 ENV PATH="$PATH:/root/.nix-profile/bin/"
-RUN apt-get update && apt-get install -y nix direnv && \
+RUN apt-get update && apt-get install -y nix direnv git git-lfs && \
+git lfs install && \
 rm -rf /var/cache/apt/archives /var/lib/apt/lists/* && \
 mkdir -p /etc/nix && \
 echo "trusted-users = root ubuntu " | tee -a /etc/nix/nix.conf && \
